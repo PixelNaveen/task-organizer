@@ -1,0 +1,87 @@
+/* New Task Modal */
+.new-task-modal .modal-content {
+  border-radius: 1.5rem;
+  background-color: var(--color-card-bg);
+  color: var(--color-text);
+  box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.2);
+  transition: var(--transition);
+}
+
+.new-task-modal .modal-header,
+.new-task-modal .modal-footer {
+  border: none;
+  padding: 1rem 1.5rem;
+  background-color: var(--color-card-bg);
+  color: var(--color-text);
+  transition: var(--transition);
+}
+
+.new-task-modal .modal-title {
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.new-task-modal .form-label {
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.new-task-modal .form-control,
+.new-task-modal .form-select,
+.new-task-modal textarea {
+  border-radius: 0.5rem;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  border: 1px solid var(--color-card-shadow);
+  box-shadow: none;
+  transition: var(--transition);
+}
+
+.new-task-modal .form-control::placeholder,
+.new-task-modal textarea::placeholder {
+  color: var(--color-text);
+  opacity: 0.6;
+}
+
+.new-task-modal .form-control:focus,
+.new-task-modal .form-select:focus {
+  border-color: var(--color-accent);
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* Buttons */
+.new-task-modal .btn {
+  border-radius: 0.5rem;
+  font-weight: 500;
+  padding: 0.5rem 1.2rem;
+  transition: var(--transition);
+}
+
+/* Primary Button */
+.new-task-modal .btn-primary {
+  background: var(--color-btn-primary-bg);
+  color: var(--color-btn-primary-text);
+  border: none;
+}
+
+.new-task-modal .btn-primary:hover {
+  background: #0056b3;
+}
+
+/* Cancel / Secondary Button */
+.new-task-modal .btn-secondary {
+  background: var(--color-btn-light-bg);
+  color: var(--color-btn-light-text);
+  border: none;
+  
+}
+
+.new-task-modal .btn-secondary:hover {
+  opacity: 0.9;
+}
+
+/* Close Button in dark theme */
+.dark-theme .new-task-modal .btn-close {
+  filter: invert(1);
+}

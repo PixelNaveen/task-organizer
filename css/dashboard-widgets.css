@@ -1,0 +1,166 @@
+/* === Dashboard Grid Layout === */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(4, auto);
+  gap: 16px;
+  padding-top: 20px;
+}
+
+.recent-tasks {
+  grid-area: 1 / 1 / 3 / 7;
+}
+
+.deadlines {
+  grid-area: 3 / 1 / 5 / 7;
+}
+
+.chart {
+  grid-area: 1 / 7 / 4 / 13;
+}
+
+.quote {
+  grid-area: 4 / 7 / 5 / 13;
+}
+
+@media (max-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .recent-tasks,
+  .deadlines,
+  .chart,
+  .quote {
+    grid-area: unset;
+  }
+}
+
+/* === Dashboard Widgets Styling === */
+.recent-tasks-list .badge {
+  font-size: 0.95em;
+  min-width: 75px;
+}
+
+.card {
+  border-radius: 1.1em;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-header {
+  font-weight: bold;
+  padding: 1rem;
+  background: #fff !important;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.card-body {
+  padding: 1rem;
+  flex: 1;
+  position: relative;
+}
+
+.card-body canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.list-group {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list-group-item {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.badge {
+  padding: 0.4em 0.75em;
+  border-radius: 20px;
+  font-size: 0.85rem;
+}
+
+.blockquote-footer {
+  font-size: 0.95em;
+}
+
+@media (max-width: 991.98px) {
+  .card {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .recent-tasks-list .badge {
+    min-width: 60px;
+    font-size: 0.85em;
+  }
+
+  .card {
+    border-radius: 0.7em;
+  }
+}
+
+/* === Dark Theme Support === */
+body.dark-theme .card {
+  background-color: #181a1b;
+  color: #f1f1f1;
+}
+
+body.dark-theme .card-header {
+  background-color: #1f2123 !important;
+  border-bottom: 1px solid #333;
+  color: #ffffff;
+}
+
+body.dark-theme .list-group-item {
+  background-color: #1f2123;
+  border-color: #333;
+  color: #f1f1f1;
+}
+
+body.dark-theme .badge.bg-success {
+  background-color: #28a745 !important;
+}
+
+body.dark-theme .badge.bg-warning {
+  background-color: #ffc107 !important;
+  color: #000 !important;
+}
+
+body.dark-theme .badge.bg-secondary {
+  background-color: #6c757d !important;
+}
+
+body.dark-theme .badge.bg-danger {
+  background-color: #dc3545 !important;
+}
+
+body.dark-theme .badge.bg-info {
+  background-color: #17a2b8 !important;
+  color: #000 !important;
+}
+
+body.dark-theme .blockquote-footer {
+  color: #aaa;
+}
+
+.extra-tall {
+  min-height: 300px;
+}
+
+@media (max-width: 768px) {
+  .extra-tall {
+    min-height: 250px;
+  }
+}

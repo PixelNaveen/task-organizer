@@ -1,0 +1,353 @@
+/* mytasks.css */
+:root {
+    --color-bg: #f5f7fa;
+    --color-text: #212529;
+    --color-accent: #007bff;
+    --color-accent-rgb: 0, 123, 255;
+    --color-card-bg: #ffffff;
+    --color-card-shadow: rgba(0, 0, 0, 0.1);
+    --color-nav-bg: #ffffff;
+    --color-nav-text: #212529;
+    --color-btn-primary-bg: #007bff;
+    --color-btn-primary-text: #ffffff;
+    --color-btn-light-bg: #f8f9fa;
+    --color-btn-light-text: #212529;
+    --color-muted: #6c757d;
+    --transition: all 0.3s ease;
+}
+
+body.dark-theme {
+    --color-bg: #181a1b;
+    --color-text: #e9ecef;
+    --color-accent: #0d6efd;
+    --color-accent-rgb: 77, 171, 247;
+    --color-card-bg: #2a2d31;
+    --color-card-shadow: rgba(0, 0, 0, 0.3);
+    --color-nav-bg: #2a2d31;
+    --color-nav-text: #e9ecef;
+    --color-btn-primary-bg: #0d6efd;
+    --color-btn-primary-text: #ffffff;
+    --color-btn-light-bg: #343a40;
+    --color-btn-light-text: #e9ecef;
+    --color-muted: #adb5bd;
+}
+
+html, body {
+    height: 100%;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: 'Inter', 'Segoe UI', 'Arial', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    transition: var(--transition);
+}
+
+main {
+    overflow-y: auto;
+}
+
+/* Search and Filter Inputs */
+#taskSearch,
+#statusFilter,
+#priorityFilter {
+    border-radius: 8px;
+    border: 1px solid var(--color-muted);
+    background: var(--color-card-bg);
+    color: var(--color-text);
+    padding: 10px 14px;
+    transition: var(--transition);
+}
+
+#taskSearch::placeholder {
+    color: var(--color-muted);
+    opacity: 1;
+}
+
+#taskSearch:focus,
+#statusFilter:focus,
+#priorityFilter:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 8px rgba(var(--color-accent-rgb), 0.2);
+    outline: none;
+}
+
+/* Table Container */
+.table-responsive {
+    background: var(--color-card-bg);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px var(--color-card-shadow);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+/* Table Styling */
+table.table {
+    border-collapse: separate;
+    border-spacing: 0 8px;
+    width: 100%;
+}
+
+table.table thead tr th {
+    background: var(--color-nav-bg);
+    color: var(--color-nav-text);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    padding: 12px 16px;
+    border: none;
+    transition: var(--transition);
+}
+
+table.table tbody tr {
+    background: var(--color-card-bg);
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+table.table tbody tr:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px var(--color-card-shadow);
+}
+
+table.table tbody tr td {
+    padding: 12px 16px;
+    vertical-align: middle;
+    color: var(--color-text);
+    background: var(--color-card-bg);
+    transition: var(--transition);
+}
+
+/* Status Badges */
+.status-pending {
+    background: linear-gradient(135deg, #ffc107, #ffca2c);
+    color: #5a3e00;
+}
+
+.status-completed {
+    background: linear-gradient(135deg, #28a745, #34c759);
+    color: #ffffff;
+}
+
+.status-overdue {
+    background: linear-gradient(135deg, #dc3545, #e4606d);
+    color: #ffffff;
+}
+
+/* Priority Badges */
+.priority-low {
+    background: linear-gradient(135deg, #17a2b8, #2bc4e2);
+    color: #ffffff;
+}
+
+.priority-medium {
+    background: linear-gradient(135deg, #ffc107, #ffca2c);
+    color: #5a3e00;
+}
+
+.priority-high {
+    background: linear-gradient(135deg, #dc3545, #e4606d);
+    color: #ffffff;
+}
+
+.status-pending,
+.status-completed,
+.status-overdue,
+.priority-low,
+.priority-medium,
+.priority-high {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+/* Action Buttons */
+.btn-edit,
+.btn-delete {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-edit {
+    background: var(--color-btn-primary-bg);
+    color: var(--color-btn-primary-text);
+}
+
+.btn-edit:hover {
+    background: linear-gradient(135deg, var(--color-btn-primary-bg), #0056b3);
+    transform: scale(1.1);
+}
+
+.btn-delete {
+    background: linear-gradient(135deg, #dc3545, #e4606d);
+    color: #ffffff;
+}
+
+.btn-delete:hover {
+    background: linear-gradient(135deg, #bb2d3b, #c82333);
+    transform: scale(1.1);
+}
+
+.btn-edit i,
+.btn-delete i {
+    font-size: 1rem;
+}
+
+/* No Results Message */
+#noResultsMessage {
+    color: var(--color-muted);
+    font-size: 1rem;
+    padding: 20px;
+    transition: var(--transition);
+}
+
+#noResultsMessage.text-muted {
+    color: var(--color-muted) !important;
+}
+
+/* Modal Styling */
+#taskModal .modal-content,
+#newTaskModal .modal-content {
+    background: var(--color-card-bg);
+    color: var(--color-text);
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 4px 16px var(--color-card-shadow);
+    transition: var(--transition);
+}
+
+#taskModal .form-control,
+#taskModal .form-select,
+#taskModal textarea,
+#newTaskModal .form-control,
+#newTaskModal .form-select,
+#newTaskModal textarea {
+    background: var(--color-bg);
+    color: var(--color-text);
+    border: 1px solid var(--color-muted);
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+#taskModal .form-control:focus,
+#taskModal .form-select:focus,
+#taskModal textarea:focus,
+#newTaskModal .form-control:focus,
+#newTaskModal .form-select:focus,
+#newTaskModal textarea:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 8px rgba(var(--color-accent-rgb), 0.2);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991.98px) {
+    #taskSearch,
+    #statusFilter,
+    #priorityFilter {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+
+    table.table thead tr th {
+        font-size: 0.85rem;
+        padding: 10px 12px;
+    }
+
+    table.table tbody tr td {
+        font-size: 0.9rem;
+        padding: 10px 12px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    table.table thead {
+        display: none;
+    }
+
+    table.table tbody tr {
+        display: block;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 10px var(--color-card-shadow);
+        border-radius: 8px;
+    }
+
+    table.table tbody tr td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 12px;
+        font-size: 0.85rem;
+        /* border-top: 1px solid var(--color-muted); */
+        border-bottom: none !important;/* Fix: no bottom borders in mobile view */
+    }
+
+    table.table tbody tr td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        flex: 1;
+    }
+
+    table.table tbody tr td[data-label="Description"] {
+        display: none;
+    }
+
+    table.table tbody tr td[data-label="Actions"] {
+        justify-content: flex-end;
+        gap: 8px;
+    }
+
+    .btn-edit,
+    .btn-delete {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+        border-radius: 6px;
+    }
+
+    .btn-edit i,
+    .btn-delete i {
+        font-size: 0.9rem;
+    }
+
+    .status-pending,
+    .status-completed,
+    .status-overdue,
+    .priority-low,
+    .priority-medium,
+    .priority-high {
+        padding: 4px 10px;
+        font-size: 0.75rem;
+        border-radius: 16px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    #taskSearch,
+    #statusFilter,
+    #priorityFilter {
+        font-size: 0.85rem;
+        padding: 6px 10px;
+    }
+
+    table.table tbody tr td {
+        font-size: 0.85rem;
+        padding: 8px 10px;
+    }
+
+    .status-pending,
+    .status-completed,
+    .status-overdue,
+    .priority-low,
+    .priority-medium,
+    .priority-high {
+        font-size: 0.8rem;
+        padding: 4px 10px;
+    }
+
+}

@@ -1,0 +1,270 @@
+:root {
+  --color-bg: #f5f7fa;
+  --color-text: #212529;
+  --color-accent: #007bff;
+  --color-card-bg: #fff;
+  --color-card-shadow: rgba(0, 0, 0, 0.08);
+  --color-nav-bg: #fff;
+  --color-nav-text: #212529;
+  --color-btn-primary-bg: #007bff;
+  --color-btn-primary-text: #fff;
+  --color-btn-light-bg: #f8f9fa;
+  --color-btn-light-text: #212529;
+  --transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+body.dark-theme {
+  --color-bg: #181a1b;
+  --color-text: #f1f3f4;
+  --color-accent: #0d6efd;
+  --color-card-bg: #23272b;
+  --color-card-shadow: rgba(0, 0, 0, 0.3);
+  --color-nav-bg: #181a1b;
+  --color-nav-text: #f1f3f4;
+  --color-btn-primary-bg: #0d6efd;
+  --color-btn-primary-text: #fff;
+  --color-btn-light-bg: #23272b;
+  --color-btn-light-text: #f1f3f4;
+}
+
+html,
+body {
+  height: 100%;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: "Segoe UI", "Arial", sans-serif;
+  transition: var(--transition);
+}
+
+main {
+  overflow-y: auto;
+  background: none;
+}
+
+.card {
+  border: none;
+  border-radius: 1rem;
+  background: var(--color-card-bg);
+  transition: var(--transition);
+  box-shadow: 0 4px 16px var(--color-card-shadow);
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.bg-white,
+.bg-light {
+  background: var(--color-nav-bg) !important;
+  color: var(--color-nav-text) !important;
+  transition: var(--transition);
+}
+
+.btn-primary {
+  background: var(--color-btn-primary-bg);
+  color: var(--color-btn-primary-text);
+  border: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.btn-primary:hover {
+  background: #0056b3;
+}
+
+.btn-light {
+  background: var(--color-btn-light-bg);
+  color: var(--color-btn-light-text);
+  border: none;
+  transition: var(--transition);
+}
+
+#theme-toggle {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  border: none;
+}
+
+#theme-toggle .theme-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+  background: var(--color-card-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-card-shadow);
+  border-radius: 8px;
+}
+
+/* Navbar dropdown on hover and click */
+.dropdown:hover .dropdown-menu,
+.dropdown:focus-within .dropdown-menu {
+  display: block;
+  margin-top: 0.5rem;
+  animation: fadeIn 0.18s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Dropdown menu positioning */
+.dropdown-menu {
+  right: 0;
+  left: auto;
+  min-width: 180px;
+  max-width: 90vw;
+  transform: translateX(0);
+  box-sizing: border-box;
+  overflow-x: auto;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.09);
+  z-index: 1050;
+  background-color: var(--color-card-bg);
+  color: var(--color-text);
+  border-radius: 0.5rem;
+}
+
+@media (max-width: 500px) {
+  .dropdown-menu {
+    min-width: 120px;
+    font-size: 0.95rem;
+    right: 2vw;
+  }
+}
+
+/* Notification Count Badge */
+#notifCount {
+  font-size: 0.75rem;
+  padding: 0.35em 0.55em;
+  z-index: 1;
+}
+
+/* Notification Dropdown Items */
+#notifDropdown li {
+  font-size: 0.9rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  background: transparent;
+  color: var(--color-text);
+}
+#notifDropdown li:last-child {
+  border-bottom: none;
+}
+#notifDropdown li.fw-bold {
+  font-weight: bold;
+}
+
+/* Toast Notification Styles */
+#toastContainer .toast {
+  border-radius: 0.5rem;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  background-color: var(--color-card-bg);
+  color: var(--color-text);
+  border: none;
+  min-width: 250px;
+  max-width: 300px;
+}
+#toastContainer .toast-body {
+  font-size: 0.95rem;
+}
+#toastContainer {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 1080;
+}
+
+/* Task Modal Styling */
+#taskModal .modal-content {
+  background: var(--color-card-bg);
+  color: var(--color-text);
+  transition: var(--transition);
+}
+
+
+
+#taskModal .form-control,
+#taskModal .form-select,
+#taskModal textarea {
+  border-radius: 0.5rem;
+  background-color: var(--color-bg);
+  border: 1px solid #ced4da;
+  color: var(--color-text);
+  transition: var(--transition);
+}
+
+/* Make dropdown responsive and prevent overflow */
+#notifDropdown {
+  right: 0;
+  left: auto;
+  transform: none;
+}
+/* Default styling for desktop */
+#notifDropdown {
+  width: 300px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* Mobile & tablet fix */
+@media (max-width: 768px) {
+  #notifDropdown {
+    right: 10px !important; /* pull it into screen */
+    left: auto !important;
+    width: 90vw !important; /* responsive width */
+    max-width: 320px;
+  }
+}
+
+
+
+
+#taskModal label {
+  font-weight: 500;
+}
+
+#taskModal .btn-primary {
+  background-color: var(--color-btn-primary-bg);
+  color: var(--color-btn-primary-text);
+}
+
+#taskModal .btn-secondary {
+  background-color: var(--color-btn-light-bg);
+  color: var(--color-btn-light-text);
+}
+
+.modal-content {
+  border-radius: 1.5rem;
+  box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Font Size on Small Devices */
+@media (max-width: 600px) {
+  html {
+    font-size: 90%;
+  }
+}
